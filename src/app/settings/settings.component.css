@@ -16,3 +16,21 @@ td i + i {
     height: 2.5rem;
 }
 
+.item-action-icon {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.item-action-icon:hover {
+  color: #0056b3;
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
