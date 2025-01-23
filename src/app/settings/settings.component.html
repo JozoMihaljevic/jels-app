@@ -1,63 +1,62 @@
 <div class="container mt-4">
-  <div class="mt-4">
-    <h4>Postavke</h4>
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nova kategorija"
-        [(ngModel)]="newCategory"
-      />
-      <button
-        class="btn btn-primary"
-        (click)="addNewCategory(newCategory)">
-        Dodaj
-      </button>
-    </div>
-  </div>
-  <hr>
-  <h3>Postojeće kategorije</h3>
-  <ul class="list-group">
-    <li *ngFor="let category of categories; let i = index"
-        class="list-group-item d-flex justify-content-between align-items-center">
-      <span class="text-truncate" style="max-width: 70%;">{{ category }}</span>
-      <div class="d-flex align-items-center">
-        <button
-          class="item-action-icon edit"
-          title="Uredi"
-          (click)="openEditModal(category, i)">
-          <i class="fas fa-edit"></i>
-        </button>
-        <button
-          class="item-action-icon delete"
-          title="Ukloni"
-          (click)="deleteCategory(category, i)">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-    </li>
-  </ul>
-</div>
+    <div class="input-group mb-3 flex-column">
+        <h1 class="mb-4">Postavke</h1>
 
-<!-- Edit Category Modal -->
-<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true" #editCategoryModal>
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editCategoryModalLabel">Uredi kategoriju</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <label for="categoryName" class="form-label">Kategorija</label>
-          <input type="text" class="form-control" id="categoryName" [(ngModel)]="selectedCategory" name="categoryName" required>
+        <!-- Add New Category -->
+        <div class="input-group mt-4">
+            <input type="text" class="form-control" placeholder="Dodaj novu kategoriju" [(ngModel)]="newCategory" />
+            <button class="btn btn-outline-secondary" type="button"
+                    (click)="addNewCategory(newCategory)"
+                    [disabled]="!newCategory">
+                Dodaj
+            </button>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="updateCategory()">Spremi</button>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+
+        <!-- Table for Displaying Categories -->
+        <div class="input-group mt-4">
+            <h3 class="mb-4">Sve kategorije</h3>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Kategorija</th>
+                    <th class="text-center">Uredi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let category of categories; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ category }}</td>
+                    <td class="d-flex justify-content-center align-items-center">
+                        <i class="fas fa-pencil-alt fa-lg icon-click-effect me-1" (click)="openEditModal(category, i)" title="Edit"></i>
+                        <i class="fas fa-trash-alt fa-lg icon-click-effect" (click)="deleteCategory(category, i)" title="Delete"></i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
+
+        <!-- Edit Category Modal -->
+        <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true" #editCategoryModal>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editCategoryModalLabel">Uredi kategoriju</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="categoryName" class="form-label">Kategorija</label>
+                            <input type="text" class="form-control" id="categoryName" [(ngModel)]="selectedCategory" name="categoryName" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="updateCategory()">Spremi</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
