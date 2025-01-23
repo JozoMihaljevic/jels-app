@@ -1,18 +1,22 @@
-/* Ensure icons are vertically aligned to the middle */
-td i {
-    font-size: 1.2rem; /* Adjust size as needed */
-    vertical-align: middle; /* Align icons vertically in the middle */
-    margin-bottom: 0; /* Remove any bottom margin */
+.category-input {
+  height: 48px; /* Matches Bootstrap's default input height */
+  font-size: 16px;
 }
 
-/* Add spacing between icons if not using Bootstrap's spacing classes */
-td i + i {
-    margin-left: 10px; /* Adjust spacing between icons */
+.category-list-item {
+  height: 48px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Optional: Adjust vertical alignment of Flexbox container */
-.d-flex {
-    align-items: center; /* Ensure items are centered vertically */
-    height: 2.5rem;
+.item-action-icon:hover {
+  color: #0056b3;
 }
 
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
