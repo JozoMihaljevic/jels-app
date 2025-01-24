@@ -1,6 +1,6 @@
 export const environment = {
     firebaseConfig: {
-        apiKey: "AIzaSyDyCAds0KfzDI2NAe0STnm8nMjs-Mhws4Q",
+        apiKey: "somekey",
         authDomain: "kupovina-app-58c98.firebaseapp.com",
         projectId: "kupovina-app-58c98",
         storageBucket: "kupovina-app-58c98.appspot.com",
